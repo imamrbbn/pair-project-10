@@ -1,5 +1,6 @@
 const {Country, Traveller, CountryTraveller, User} = require ("../models")
 const bcrypt = require('bcryptjs');
+const sendMailRegister = require('../helpers/sendEmail.js')
 
 class UserController {
 
@@ -49,6 +50,7 @@ class UserController {
     static registerPost (req, res) {
         let params = {
             username : req.body.username,
+            email: req.body.email,
             password : req.body.password
         }
 
@@ -56,12 +58,19 @@ class UserController {
 
         .then (data => {
             res.redirect ("/user/login")
+            sendMailRegister(data.email)
         })
-        
         .catch (err => {
-            res.send (err)
-        })
+            res.send ({
+                'success': false,
+                'code': 500,
+                'message': 'An error has occured',
+                'data': ''
+              })
+            })
     }
+
+   
 
     static logout (req, res) {
 
