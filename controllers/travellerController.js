@@ -1,4 +1,4 @@
-const {Country, Traveller} = require ("../models")
+const {Country, Traveller, CountryTraveller} = require ("../models")
 
 class TravellerController {
 
@@ -76,6 +76,74 @@ class TravellerController {
         })
     }
 
+    static addTravelPlanForm (req, res) {
+        let listTravel = null
+        let country = null
+
+        Traveller.findByPk (req.params.id)
+
+        .then (data => {
+            listTravel = data
+            return Country.findAll ()
+        })
+
+        .then (data => {
+            country = data
+            return CountryTraveller.findAll ({
+                include : [Traveller],
+                where : {
+                    TravellerId : req.params.id
+                }
+            })
+        })
+
+        .then (data => {
+            res.render ("addTravelPlanForm", {data, listTravel, country})
+        })
+
+        .catch (err => {
+            res.send (err)
+        })
+
+    }
+
+    static addTravelPlanPost (req, res) {
+        let params = {
+            TravellerId : req.params.id,
+            CountryId : req.body.CountryId,
+            tanggal_keberangkatan : new Date (req.body.tanggal_keberangkatan),
+            tanggal_pulang : new Date (req.body.tanggal_pulang)
+        }
+        res.send (params)
+        CountryTraveller.create (params)
+
+        .then (data => {
+            res.redirect (`/travellers/seeTravelPlan/${req.params.id}`)
+        })
+
+        .catch (err => {
+            res.redirect (`/travellers/addTravelPlan/${req.params.id}`)
+        })
+        
+    }
+
+    static seeTravelPlan (req, res) {
+        CountryTraveller.findAll ({
+            include : [Country, Traveller],
+            where : {TravellerId : req.params.id}
+
+        })
+
+        .then (data => {
+            // res.send (data)
+            res.render ("seeTravelPlan", {data})
+        })
+
+        .catch (err => {
+            res.send (err)
+        })
+    }
+
     static delete (req, res) {
         Traveller.destroy ({
             where : {id : req.params.id}
@@ -89,6 +157,8 @@ class TravellerController {
             res.send (err)
         })
     }
+
+
 
     
 

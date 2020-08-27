@@ -24,13 +24,14 @@
                 <td> <%= el.id %> </td>
                 <!-- <td> <%= el.first_name %> </td>
                 <td> <%= el.last_name %> </td> -->
-                <td> <%= el.fullName() %> </td>
+                <td> <%= el.fullName () %> </td>
                 <td> <%= el.asal %> </td>
                 <td> <%= el.gender %> </td>
                 <td>
                     <a href="/travellers/edit/<%= el.id %>">Edit</a>
                     <a href="/travellers/delete/<%= el.id %>">Delete</a>
-                    <a href="">See Travel Plan</a>
+                    <a href="/travellers/addTravelPlan/<%= el.id %>">Add Travel Plan</a>
+                    <a href="/travellers/seeTravelPlan/<%= el.id %>">See Travel Plan</a>
                 </td>
             </tr>
 
