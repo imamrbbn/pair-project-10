@@ -21,7 +21,15 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Traveller.init({
-    first_name: DataTypes.STRING,
+    first_name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : `You can't leave your first name empty`
+        }
+      }
+    },
     last_name: DataTypes.STRING,
     asal: DataTypes.STRING,
     gender: DataTypes.STRING

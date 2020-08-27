@@ -118,11 +118,16 @@ class TravellerController {
         CountryTraveller.create (params)
 
         .then (data => {
-            res.redirect (`/travellers/seeTravelPlan/${req.params.id}`)
+            // console.log (data)
+            // res.send (data)
+            res.render ("seeTravelPlan", {data})
+            // res.redirect (`/travellers/seeTravelPlan/${req.params.id}`)
         })
 
         .catch (err => {
-            res.redirect (`/travellers/addTravelPlan/${req.params.id}`)
+            console.log (err)
+            res.send (err)
+            // res.redirect (`/travellers/addTravelPlan/${req.params.id}`)
         })
         
     }
