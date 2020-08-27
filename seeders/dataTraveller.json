@@ -1,0 +1,32 @@
+[
+    {
+    "first_name" : "John",
+    "last_name" : "Lennon",
+    "asal" : "UK"
+    },
+
+    {
+        "first_name" : "Yoko",
+        "last_name" : "Ono",
+        "asal" : "Japan"
+    },
+
+    {
+        "first_name" : "Elvis",
+        "last_name" : "Presley",
+        "asal" : "USA"
+    },
+
+    {
+        "first_name" : "Song",
+        "last_name" : "Hye-kyo",
+        "asal" : "South Korea"
+    },
+
+    {
+        "first_name" : "Hugh",
+        "last_name" : "Jackman",
+        "asal" : "Australia"
+    }
+]
+
