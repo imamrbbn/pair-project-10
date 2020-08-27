@@ -1,0 +1,29 @@
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+
+<h2>Add Traveller</h2>
+
+<form action="/travellers/add"" method="post">
+    <label for="first_name">First Name</label><br>
+    <input type="text" name= "first_name" placeholder = "e.g Tom"><br><br>
+
+    <label for="last_name">Last Name</label><br>
+    <input type="text" name= "last_name" placeholder = "e.g Holland"><br><br>
+
+    <label for="asal">Origins</label><br>
+    <input type="text" name= "asal" placeholder = "e.g UK"><br><br>
+
+    <label for="gender">Gender</label><br>
+    <select name="gender" id="gender">
+        <option value="">---Select Gender---</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+
+    </select><br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+
+<%- include ('./partials/footer.ejs') %><br>
