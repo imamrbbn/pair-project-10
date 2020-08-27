@@ -16,7 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   Country.init({
     name: DataTypes.STRING,
     capital: DataTypes.STRING,
-    currency: DataTypes.STRING
+    currency: DataTypes.STRING,
+    language: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Country',
