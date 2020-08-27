@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Countries</title>
+</head>
+<body>
+    <h1>Edit Negara</h1>
+
+    <form action="/countries/edit/<%=data.id%>" method="POST">
+
+        <label for="name">Nama Negara</label><br>
+        <input name="name" value = "<%=data.name%>" type="text"><br><br>
+
+
+        <label for="capital">Ibu Kota</label><br>
+        <input name="capital" value = "<%=data.capital%>"  type="text"><br><br>
+
+        <label for="language">Bahasa</label><br>
+        <input name="language" value = "<%=data.language%>"  type="text"><br><br>
+
+        <label for="currency">Mata Uang</label><br>
+        <input name="currency" value = "<%=data.currency%>"  type="text"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+</body>
+</html>

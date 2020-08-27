@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Travel</title>
+</head>
+<body>
+    <h1>LIST NEGARA</h1>
+    <table border="1">
+
+    <a href="/countries/add">Tambah Negara</a>
+    <br>
+    <br>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nama Negara</th>
+                <th>Ibu Kota</th>
+                <th>Bahasa</th>
+                <th>Mata Uang</th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <% data.forEach(e => { %>
+                    <tr>
+                        <td><%= e.id %></td>
+                        <td><%= e.name %></td>
+                        <td><%= e.capital %></td>
+                        <td><%= e.language %></td>
+                        <td><%= e.currency %></td>
+                        <td>
+                            <a href="/countries/edit/<%=e.id%>">edit</a>
+                            <a href="/countries/delete/<%=e.id%>">delete</a>
+                        </td>
+                    </tr>
+                <% }) %>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
