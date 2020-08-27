@@ -1,4 +1,5 @@
 'use strict';
+const duration = require('../helpers/duration.js')
 const {
   Model
 } = require('sequelize');
@@ -9,6 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    get duration() {
+      return duration(this.tanggal_keberangkatan, this.tanggal_pulang)
+    } 
+     
     static associate(models) {
       // define association here
       CountryTraveller.belongsTo (models.Country)
