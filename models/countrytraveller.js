@@ -1,0 +1,30 @@
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class CountryTraveller extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      CountryTraveller.belongsTo (models.Country)
+      CountryTraveller.belongsTo (models.Traveller)
+    }
+  };
+  CountryTraveller.init({
+    CountryId: DataTypes.INTEGER,
+    TravellerId: DataTypes.INTEGER,
+    total_biaya: DataTypes.INTEGER,
+    tanggal_keberangkatan: DataTypes.DATE,
+    tanggal_pulang: DataTypes.DATE,
+    nomor_registrasi: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'CountryTraveller',
+  });
+  return CountryTraveller;
+};

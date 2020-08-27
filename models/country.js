@@ -11,12 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Country.hasMany (models.CountryTraveller)
+      Country.belongsToMany (models.Traveller, {through : models.CountryTraveller})
     }
   };
   Country.init({
     name: DataTypes.STRING,
     capital: DataTypes.STRING,
-    currency: DataTypes.STRING
+    currency: DataTypes.STRING,
+    language: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Country',

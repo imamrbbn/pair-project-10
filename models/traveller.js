@@ -13,9 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       let fullname = `${this.first_name} ${this.last_name}`
       return fullname
     }
-    
+
     static associate(models) {
       // define association here
+      Traveller.hasMany (models.CountryTraveller)
+      Traveller.belongsToMany (models.Country, {through : models.CountryTraveller})
     }
   };
   Traveller.init({

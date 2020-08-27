@@ -1,23 +1,29 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Travellers', {
+    return queryInterface.createTable('CountryTravellers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      first_name: {
-        type: Sequelize.STRING
-      },
-      last_name: {
-        type: Sequelize.STRING
-      },
-      // gender: {
-      //   type: Sequelize.STRING
+      // CountryId: {
+      //   type: Sequelize.INTEGER
       // },
-      asal: {
+      // TravellerId: {
+      //   type: Sequelize.INTEGER
+      // },
+      total_biaya: {
+        type: Sequelize.INTEGER
+      },
+      tanggal_keberangkatan: {
+        type: Sequelize.DATE
+      },
+      tanggal_pulang: {
+        type: Sequelize.DATE
+      },
+      nomor_registrasi: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -31,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Travellers');
+    return queryInterface.dropTable('CountryTravellers');
   }
 };
