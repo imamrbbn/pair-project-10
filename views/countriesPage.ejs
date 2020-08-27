@@ -1,24 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Easy Travel</title>
-</head>
-<body>
-    <h1>LIST NEGARA</h1>
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+    <h1>COUNTRIES LIST</h1>
     <table border="1">
 
-    <a href="/countries/add">Tambah Negara</a>
+    <a href="/countries/add">ADD COUNTRY</a>
     <br>
     <br>
         <thead>
             <tr>
                 <th>#</th>
-                <th>Nama Negara</th>
-                <th>Ibu Kota</th>
-                <th>Bahasa</th>
-                <th>Mata Uang</th>
+                <th>Country</th>
+                <th>Capital</th>
+                <th>Language</th>
+                <th>Currency</th>
+                <th>Travellers</th>
                 <th>Action </th>
             </tr>
         </thead>
@@ -31,6 +26,7 @@
                         <td><%= e.capital %></td>
                         <td><%= e.language %></td>
                         <td><%= e.currency %></td>
+                        <td><a href="/countries/<%=e.id%>/travellers/">See</a></td>
                         <td>
                             <a href="/countries/edit/<%=e.id%>">edit</a>
                             <a href="/countries/delete/<%=e.id%>">delete</a>
@@ -40,6 +36,4 @@
             </tr>
         </tbody>
     </table>
-
-</body>
-</html>
+    <%- include ('./partials/footer.ejs') %><br>

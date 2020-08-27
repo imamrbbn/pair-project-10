@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Countries</title>
-</head>
-<body>
-    <h1>Tambah Negara</h1>
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+
+    <h1>Add Country</h1>
 
     <form action="/countries/add" method="POST">
 
-        <label for="name">Nama Negara</label><br>
+        <label for="name">Country</label><br>
         <input name="name" type="text"><br><br>
 
 
@@ -25,5 +20,5 @@
         <button type="submit">Submit</button>
     </form>
     
-</body>
-</html>
+
+<%- include ('./partials/footer.ejs') %><br>

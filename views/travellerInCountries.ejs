@@ -1,0 +1,42 @@
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+
+<h2>Traveller List to <%= data[0].Country.name %></h2> <br>
+<h4>Capital: <%= data[0].Country.capital %>   ||   Currency :<%= data[0].Country.currency %></h4>
+
+<table border="1">
+<thead>
+    <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Origins</th>
+        <th>Duration</th>
+        <th>Date of Departure</th>
+        <th>Date of Return</th>
+        <th>Action</th>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <% let number = 1 %>
+        <% data.forEach(e => { %>
+            <tr>
+                <!-- <td><%= e.id %></td> -->
+                <td><%= number++ %></td>
+                <td><%= e.Traveller.first_name %></td>
+                <td><%= e.Traveller.gender %></td>
+                <td><%= e.Traveller.asal %></td>
+                <td><%= 'durasi' %></td>
+                <td><%= e.tanggal_keberangkatan %></td>
+                <td><%= e.tanggal_pulang %></td>
+                <td>
+                    <a href="/countries/<%=e.CountryId%>/travellers/<%=e.TravellerId%>">remove</a>
+                </td>
+            </tr>
+        <% }) %>
+    </tr>
+</tbody>
+</table>
+
+<%- include ('./partials/footer.ejs') %><br>

@@ -1,9 +1,9 @@
 {
   "development": {
     "username": "postgres",
-    "password": "fandiario",
-    "database": "p1r-pair-project",
-    "host": "127.0.0.1",
+    "password": "postgres",
+    "database": "database_development",
+    "host": "localhost",
     "dialect": "postgres"
   },
   "test": {

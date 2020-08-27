@@ -1,9 +1,8 @@
-const {Country} = require('../models')
+const {Country,Traveller, CountryTraveller} = require('../models')
 
 class CountryController {
 
     static showCountries(req,res){
-        console.log("masuk");
         Country.findAll({
             order: [['id', 'ASC']],
         })
@@ -81,6 +80,39 @@ class CountryController {
                 res.send(err)
             })
         }
+
+        
+        static travellersInCountry(req,res){
+            CountryTraveller.findAll({
+                where : {CountryId : +req.params.id},
+                include: [Country,Traveller],
+            })
+               .then(data => {
+                //    console.log(data[0].duration);
+                   res.render('travellerInCountries',{data})
+               })
+               .catch(err => {
+                   console.log(err);
+                   res.send(err)
+               })
+            }
+
+            static travellersRemove(req,res) {
+                console.log(req.params);
+                CountryTraveller.findOne( {
+                    where: {TravellerId: +req.params.id}
+                })
+                .then(data => {
+                    CountryTraveller.destroy( {
+                        where: {TravellerId: +req.params.id}
+                    })
+                    res.redirect(`/countries/${data.CountryId}/travellers`)
+                })
+                .catch(err => {
+                    console.log(err)
+                    res.send(err)
+                })
+            }
 
 }
 
