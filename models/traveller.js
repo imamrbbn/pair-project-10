@@ -30,9 +30,33 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    last_name: DataTypes.STRING,
-    asal: DataTypes.STRING,
-    gender: DataTypes.STRING
+    last_name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : `You can't leave your last name empty`
+        }
+      }
+    },
+    asal: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : `You can't leave your origin empty`
+        }
+      }
+    },
+    gender: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {
+          args : true,
+          msg : `You can't leave your gender empty`
+        }
+      }
+    },
   }, {
     sequelize,
     modelName: 'Traveller',

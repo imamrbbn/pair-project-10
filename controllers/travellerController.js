@@ -1,5 +1,5 @@
 const {Country, Traveller, CountryTraveller} = require ("../models")
-
+const dateHumanFormat = require('../helpers/dateHumanFormat.js')
 class TravellerController {
 
     static show (req, res) {
@@ -72,7 +72,7 @@ class TravellerController {
         })
 
         .catch (err => {
-            res.redirect (`/travellers/edit/${req.params.id}`)
+            res.send(err)
         })
     }
 
@@ -114,21 +114,15 @@ class TravellerController {
             tanggal_keberangkatan : new Date (req.body.tanggal_keberangkatan),
             tanggal_pulang : new Date (req.body.tanggal_pulang)
         }
-        res.send (params)
         CountryTraveller.create (params)
+            .then (data => {
+                console.log(data);
+                res.redirect (`/travellers/seeTravelPlan/${req.params.id}`)
+            })
 
-        .then (data => {
-            // console.log (data)
-            // res.send (data)
-            res.render ("seeTravelPlan", {data})
-            // res.redirect (`/travellers/seeTravelPlan/${req.params.id}`)
-        })
-
-        .catch (err => {
-            console.log (err)
-            res.send (err)
-            // res.redirect (`/travellers/addTravelPlan/${req.params.id}`)
-        })
+            .catch (err => {
+                res.send (err)
+            })
         
     }
 
@@ -140,8 +134,14 @@ class TravellerController {
         })
 
         .then (data => {
-            // res.send (data)
-            res.render ("seeTravelPlan", {data})
+            let date = [ ]
+            // data.forEach(e => {
+            //     e.tanggal_keberangkatan = dateHumanFormat(e.tanggal_keberangkatan)
+            //     date.push(dateHumanFormat(e.tanggal_pulang))
+            //     console.log(dateHumanFormat(e.tanggal_pulang));
+            // });
+            // console.log(data[]);
+            res.render ("seeTravelPlan", {data,date})
         })
 
         .catch (err => {

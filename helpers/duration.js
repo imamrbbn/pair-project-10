@@ -1,6 +1,7 @@
 function duration(departureDate, returnDate) {
-    let result = (returnDate.getDay() - departureDate.getDay())
+    let result = (returnDate.getDate() - departureDate.getDate())
+
     return `${result} Days` 
 }
 
-// duration(new Date(), new Date())
+module.exports = duration
