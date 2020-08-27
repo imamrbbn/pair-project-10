@@ -1,22 +1,17 @@
 <%- include ('./partials/header.ejs') %><br>
 
 <body>
-    <h2>Log In</h2>
-    <p><a href="/users/register">Register Now !</a></p>
-    <% if (errors) {%>
+    <h2>Register</h2>
+    <p><a href="/users/login">Login Now !</a></p>
 
-        <p> <%= errors %></p>
-
-    <% } %>
-
-    <form action="/users/login" method="post">
+    <form action="/users/register" method="post">
         <label for="">username</label><br>
         <input type="text" name="username" id=""><br><br>
 
         <label for="">password</label><br>
         <input type="password" name="password" id=""> <br><br>
 
-        <button type="submit">Enter</button>
+        <button type="submit">Register</button>
     </form>
     
 </body>
