@@ -16,10 +16,42 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Country.init({
-    name: DataTypes.STRING,
-    capital: DataTypes.STRING,
-    currency: DataTypes.STRING,
-    language: DataTypes.STRING,
+    name: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args:true,
+          msg: `Must input country name!`,
+        },
+      },
+    },
+    capital:{
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args:true,
+          msg: `Must input capital!`,
+        },
+      },
+    },
+    currency: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args:true,
+          msg: `Must input currency!`,
+        },
+      },
+    },
+    language: {
+      type: DataTypes.STRING,
+      validate: {
+        notEmpty: {
+          args:true,
+          msg: `Must input language!`,
+        },
+      },
+    },
   }, {
     sequelize,
     modelName: 'Country',

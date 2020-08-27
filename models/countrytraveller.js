@@ -1,5 +1,7 @@
 'use strict';
 const duration = require('../helpers/duration.js')
+const dateHumanFormat = require('../helpers/dateHumanFormat.js')
+
 const {
   Model
 } = require('sequelize');
@@ -30,6 +32,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'CountryTraveller',
+    hooks: {
+      beforeCreate: (user,option)=> {
+        user.nomor_registrasi = `001-${user.tanggal_keberangkatan}-${user.tanggal_keberangkatan}`
+      }
+    },
   });
   return CountryTraveller;
 };

@@ -88,7 +88,7 @@ class CountryController {
                 include: [Country,Traveller],
             })
                .then(data => {
-                //    console.log(data[0].duration);
+                   console.log(data);
                    res.render('travellerInCountries',{data})
                })
                .catch(err => {
@@ -103,9 +103,10 @@ class CountryController {
                     where: {TravellerId: +req.params.id}
                 })
                 .then(data => {
-                    CountryTraveller.destroy( {
-                        where: {TravellerId: +req.params.id}
-                    })
+                    console.log(data);
+                    // CountryTraveller.destroy( {
+                    //     where: {TravellerId: +req.params.id}
+                    // })
                     res.redirect(`/countries/${data.CountryId}/travellers`)
                 })
                 .catch(err => {
