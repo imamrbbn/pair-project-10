@@ -1,0 +1,34 @@
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+
+    <h3>Add Travel Plan</h3>
+
+    <form action="/travellers/addTravelPlan/<%= listTravel.id %>" method="post">
+
+        <!-- fullname Traveller -->
+        <label for="name">Traveller : <%= listTravel.fullName () %></label> <br>
+
+        <!-- country -->
+        <label for="CountryId">Destination Country</label> <br>
+        <select name="CountryId" id="CountryId">
+            <option value="">Select destination country</option>
+            <% country.forEach (el => {%>
+            <option <%= data.CountryId == el.id ? 'selected' : '' %> value="<%= el.id %>"> <%= el.name %> </option>
+            <% })%>
+        </select><br><br>
+
+      
+        <label for="tanggal_keberangkatan">Date of Departure</label><br>
+        <input type="date" name="tanggal_keberangkatan"><br><br>
+
+        <label for="tanggal_pulang">Date of Arrival</label><br>
+        <input type="date" name="tanggal_pulang"><br><br>
+
+        <button type="submit">Save</button>
+        <button type="reset">Cancel</button>
+
+        
+    </form>
+    <br><br>
+    
+<%- include ('./partials/footer.ejs') %><br>

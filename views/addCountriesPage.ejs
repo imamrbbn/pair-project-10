@@ -1,0 +1,24 @@
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+
+    <h1>Add Country</h1>
+
+    <form action="/countries/add" method="POST">
+
+        <label for="name">Country</label><br>
+        <input name="name" type="text"><br><br>
+
+
+        <label for="releasedYear">Ibu Kota</label><br>
+        <input name="capital" type="text"><br><br>
+
+        <label for="name">Bahasa</label><br>
+        <input name="language" type="text"><br><br>
+
+        <label for="name">Mata Uang</label><br>
+        <input name="currency" type="text"><br><br>
+        <button type="submit">Submit</button>
+    </form>
+    
+
+<%- include ('./partials/footer.ejs') %><br>

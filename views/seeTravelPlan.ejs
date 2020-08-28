@@ -1,0 +1,29 @@
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+
+<h2>Travel Plan</label></h2>
+
+<table border = "1">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Travel Plan </td>
+            <td>Date of Departure</td>
+            <td>Date of Arrival</td>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% data.forEach (el => { %>
+        <tr>
+            <td><%= el.Traveller.fullName () %></td>
+            <td><%= el.Country.name %></td>
+            <td><%= el.tanggal_keberangkatan %></td>
+            <td><%= el.tanggal_pulang %></td>
+        </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+<%- include ('./partials/footer.ejs') %><br>

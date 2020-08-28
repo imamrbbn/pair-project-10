@@ -1,0 +1,23 @@
+<%- include ('./partials/header.ejs') %><br>
+<%- include ('./partials/navbar.ejs') %><br>
+    <h1>Edit Country</h1>
+
+    <form action="/countries/edit/<%=data.id%>" method="POST">
+
+        <label for="name">Country</label><br>
+        <input name="name" value = "<%=data.name%>" type="text"><br><br>
+
+
+        <label for="capital">Capital</label><br>
+        <input name="capital" value = "<%=data.capital%>"  type="text"><br><br>
+
+        <label for="language">Language</label><br>
+        <input name="language" value = "<%=data.language%>"  type="text"><br><br>
+
+        <label for="currency">Currency</label><br>
+        <input name="currency" value = "<%=data.currency%>"  type="text"><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+    <%- include ('./partials/footer.ejs') %><br>
