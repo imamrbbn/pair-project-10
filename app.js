@@ -13,7 +13,6 @@ app.use(session({
     saveUninitialized: true,
   }))
 
-
 app.use ("/", router)
 
 app.listen(port, () => {
