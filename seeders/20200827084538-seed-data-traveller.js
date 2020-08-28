@@ -29,6 +29,6 @@ module.exports = {
      * await queryInterface.bulkDelete('People', null, {});
      */
 
-     return queryInterface.bulkDelete ("Travellers", dataTraveller)
+     return queryInterface.bulkDelete ("Travellers", null, {})
   }
 };
